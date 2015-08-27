@@ -11,16 +11,16 @@
 |
 */
 
-Route::get('/', 'PagesController@todo');
+Route::get('/', 'TasksController@index');
 
 Route::get('todo','TasksController@index');
 
 Route::post('todo','TasksController@store');
 
-Route::get('todo/{filter}','TasksController@filter');
+Route::get('todo/show/{filter}','TasksController@filter');
 
-Route::get('remove/{name}','TasksController@remove');
+Route::get('todo/remove/{name}','TasksController@remove');
 
-Route::get('update/{name}','TasksController@update');
+Route::get('todo/update/{name}','TasksController@update');
 
 

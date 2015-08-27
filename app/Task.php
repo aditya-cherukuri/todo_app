@@ -12,7 +12,15 @@ class Task extends Model
         'status'
     ];
 
-    public function setStatus($status){
-        $this->attributes['status']=($status);
+    public function setStatusAttribute($status){
+        $this->attributes['status']= $status;
+    }
+
+    public function scopeUnfinished($query){
+        $query->where('status',"0");
+    }
+
+    public function scopeFinished($query){
+        $query->where('status',"1");
     }
 }

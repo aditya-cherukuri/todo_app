@@ -3,6 +3,8 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Prophecy\Exception\Doubler\MethodNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
@@ -27,6 +29,9 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $e)
     {
+        if($e instanceof ModelNotFoundException){
+           // abort(404);
+        }
         return parent::report($e);
     }
 
